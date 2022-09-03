@@ -1,6 +1,6 @@
 
 import Notiflix from 'notiflix';
-
+let delay;
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3 
  return new Promise((resolve, reject)=>{ setTimeout(() => {
@@ -22,7 +22,7 @@ function showPromises(event) {
   const amountValue=event.currentTarget.elements.amount.value;
   if (event.target===submitButton){
     for (let position = 1; position  <= amountValue; position += 1) 
-    {let delay=delayValue+(position-1)*stepValue
+    {delay=delayValue+(position-1)*stepValue
      
     createPromise(position, delay).then(({position, delay})=>{
       Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
