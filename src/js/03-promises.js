@@ -22,9 +22,9 @@ function showPromises(event) {
   const amountValue=event.currentTarget.elements.amount.value;
   if (event.target===submitButton){
     for (let position = 1; position  <= amountValue; position += 1) 
-    {delay=delayValue+(position-1)*stepValue
+    {let delay=delayValue+(position-1)*stepValue
      
-    createPromise(position,delay).then(({position, delay})=>{
+    createPromise(position, delay).then(({position, delay})=>{
       Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
   }).catch(({position, delay}) => { 
     Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
